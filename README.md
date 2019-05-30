@@ -5,3 +5,4 @@ DataSet文件夹中存放了项目的数据，包括原始数据rawdata.csv，�
 原始数据中共有610个用户对9724部电影进行了评分
 train_test_split.py对原始数据进行划分
 pretreat.py对数据进行预处理
+user_based.py使用基于用户的协同过滤算法进行评分预测，生成的用户相似度矩阵存放在sim.csv中
