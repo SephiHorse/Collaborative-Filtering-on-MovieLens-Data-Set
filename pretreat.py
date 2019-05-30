@@ -40,8 +40,16 @@ def array_gen(name2id):
     return mat
 
 
-#生成每个用户的评分平均值矩阵
+def get_test(name2id):
+    test_set = csv.reader(open('Dataset/test.csv','r',encoding='big5'))
+    ret = []
+    for row in test_set:
+        userid  = int(row[0])
+        movieid = name2id[int(row[1])]
+        ret.append((userid,movieid,float(row[2])))
+    return ret
 
+#得到每个用户的评分平均值
 def average_rating(mat):
     ratings = []
     for row in mat:
@@ -59,9 +67,8 @@ def average_rating(mat):
 
 if __name__ == "__main__":
     id2name,name2id = get_movie_index()
-    mat = array_gen(name2id)
-    avg = average_rating(mat)
-    print(avg)
+    test = get_test(name2id)
+    print(test)
     
     
 
